@@ -1,0 +1,38 @@
+//color set 
+$blue: #0096d6;
+$darkest-gray: #141414;
+$dark-gray: #1e1e1e;
+$med-gray: #424242;
+$gray: #747475;
+$light-gray: #cecece;
+
+//== Media queries breakpoints
+@mixin desktop-hd {
+  @media only screen and (min-width: 1230px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (min-width: 768px) and (max-height: 850px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+@mixin font-roboto($weight: 400){
+	font-family: 'Roboto', sans-serif;
+	font-weight: $weight;
+}
+
+@mixin font-georgia($weight: normal){
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-weight: $weight;
+}
+
+.font-xxs{
+	font-size: 10px;
+}
+
+.font-xs{
+	font-size: 12px;
+}
+
+.font-sm{
+	font-size: 13px;
+}
+
+.font-md{
+	font-size: 14.5px;
+}
+
+.font-lg{
+	font-size: 17.5px;
+}
+
+.font-xl{
+	font-size: 34px;
+}
+
+.font-xxl{
+	font-size: 52px;
+	line-height: 44px;
+}
+
+.font-author{
+	font-size: 18px;
+}
+
+.font-search{
+	font-size: 45px;
+}
+
+.font-result-header{
+	font-size: 16px;
+}
+
+.font-result-info{
+	font-size: 14px;
+}

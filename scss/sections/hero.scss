@@ -1,0 +1,51 @@
+#hero{
+	height: 750px;
+	position: relative;
+	background-color: white;
+	overflow: hidden;
+	opacity: 0;
+	@include animate(heroFadeIn, 1s ease-out forwards .2s){
+		100%{
+			opacity: 1;
+		}
+	}
+	.fill{
+		background-image: url(/portfolio/ifit/images/hero-bkg.jpg);
+		background-position: center;
+		background-size: cover;
+		@include psuedoLarge(100%, 750px);
+	}
+	.caption{
+	    position: absolute;
+	    z-index: 1;
+	    left: 190px;
+	    bottom: 195px;
+	    color: white;
+	    p:nth-of-type(1){
+	    	margin-bottom: 25px;
+	    	font-weight: 300;
+	    	opacity: 0;
+	    	left: 50px;
+	    	position: relative;
+	    	@include animate(lgFadeIn, 1s ease-out forwards .5s){
+				100%{
+					opacity: 1;
+					left: 0;
+				}
+	    	}
+	    }
+	    p:nth-of-type(2){
+	    	line-height: 18px;
+	    	max-width: 380px;
+	    	opacity: 0;
+	    	top: 20px;
+	    	position: relative;
+	    	@include animate(smFadeIn, .5s ease-out forwards 1.5s){
+				100%{
+					opacity: 1;
+					top: 0;
+				}
+	    	}
+	    }
+	}
+}

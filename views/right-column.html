@@ -1,0 +1,10 @@
+<div class="group" 
+	ng-repeat="item in items track by $index" 
+	ng-class="{open:$index === currentIndex}"
+	ng-click="toggleAccordian($index)">
+	<p  class="font-sm">{{::item.category}} <span ng-include="'images/caret.svg'"></span></p>
+	<ul ng-class="{'fade-in':$index === currentIndex}">
+	  <li ng-repeat="link in item.list"><a href="">{{::link}}</a></li>
+	</ul>
+</div>
+<a href="#" class="btn-blue font-md">JOIN IFIT TODAY</a>

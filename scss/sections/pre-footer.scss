@@ -1,0 +1,17 @@
+#pre-footer{
+	opacity: 0;
+	div[class^="col-"]{
+		padding: 35px 0;
+		@include flex-param();
+		p, button{
+			margin-right: 20px;
+		}
+		p{
+			line-height: 24px;
+		}
+		button{
+			margin-bottom: 0;
+			padding: 23px 40px;
+		}
+	}
+}

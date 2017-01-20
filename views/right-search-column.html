@@ -1,0 +1,24 @@
+<div class="group-top">
+	<span class="btn-close font-xl" ng-click="hideSearch()">X</span>
+	<p class="font-sm">SEARCH SHOP</p>
+	<p class="font-xxs">Start Typing</p>
+	<input type="text" class="font-search" ng-model="search">
+</div>
+<div class="group-bottom">
+	<div class="group" ng-repeat="result in results">	
+		<div class="heading" ng-if="filtered.length > 0">
+			<p class="font-result-header">{{result.category}}</p>
+			<p class="font-xs">VIEW ALL</p>
+		</div>
+		<div class="results" ng-repeat="item in filtered = (result.products | filter : search)">
+			<div class="group">
+				<img ng-src="{{item.img}}" alt="thumb">
+				<div class="info">
+					<p class="font-result-info">{{item.title}}</p>
+					<p class="font-xxs">{{item.subtitle}}</p>
+				</div>
+			</div>
+			<p class="font-xxs">{{item.price | currency}}</p>
+		</div>
+	</div>
+</div>

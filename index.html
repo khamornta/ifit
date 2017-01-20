@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en-US" ng-app="app">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, minimal-ui">
+
+        <title>Ifit Test</title>
+ 
+        <link rel="shortcut icon" href="/portfolio/images/favico.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/portfolio/ifit/dist/css/app.css">
+    </head>
+
+    <body class="ng-cloak">
+
+
+        <header ng-include="'views/header.html'"
+                ng-controller="navCtrl">
+        </header>
+
+        <aside id="right-column"
+                ng-include="'views/right-column.html'"
+                ng-class="{open:columnOpen}"
+                ng-controller="rightColumnCtrl">
+        </aside>
+
+        <aside id="right-search-column"
+                ng-include="'views/right-search-column.html'"
+                ng-class="{open:searchOpen}"
+                ng-controller="searchCtrl">
+        </aside>
+
+        <section id="hero"
+                 scroll-magic sm-trigger="#hero" sm-dir="onLeave" sm-target="#hero .caption" sm-dur="100%" sm-prop="{bottom: 250, opacity: 0.5}"
+                 ng-include="'views/hero.html'">
+        </section>
+        
+        <section id="main" 
+                  scroll-magic sm-trigger="#hero" sm-dir="onLeave"  sm-target="#hero .fill" sm-dur="100%" sm-prop="{top: 50, opacity: 0}"
+                  ng-include="'views/main.html'" 
+                  ng-controller="mainCtrl">
+        </section>
+
+        <section id="testimonials" 
+                 scroll-magic sm-trigger="#testimonials" sm-dir=".9" sm-target="#testimonials" sm-dur="100" sm-prop="{opacity: 1}"
+                 ng-include="'views/testimonials.html'"
+                 ng-controller="testimonyCtrl">
+        </section>
+
+        <section id="pre-footer" 
+                 scroll-magic sm-trigger="#pre-footer" sm-dir=".9" sm-target="#pre-footer" sm-dur="100" sm-prop="{opacity: 1}"
+                 ng-include="'views/pre-footer.html'">
+        </section>
+
+        <footer scroll-magic sm-trigger="footer" sm-dir="onEnter" sm-target="footer" sm-dur="20" sm-prop="{opacity: 1}"
+        ng-include="'views/footer.html'"></footer>
+
+    </body>
+
+    <script src="/portfolio/ifit/dist/js/main.js"></script>
+
+</html>

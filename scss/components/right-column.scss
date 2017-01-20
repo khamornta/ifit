@@ -1,0 +1,84 @@
+#right-column,
+#right-search-column{
+    position: fixed;
+    right: -250px;
+    bottom: 0;
+    height: calc(100% - 70px);
+    width: 250px;
+    background-color: $dark-gray;
+    color: white;
+    z-index: 9999;
+    @include transition(right .2s ease-out);
+    &.open{
+    	right: 0;
+    	@include transition(right .3s ease-out);
+    }
+
+    a.btn-blue{
+        margin-top: 40px;
+        margin-bottom: 0;
+        margin-left: 20px;
+        padding: 15px 20px;
+        color: white;
+    }
+
+    .group p{
+        padding: 10px 20px;
+        @include hoverstate(.2s){
+            background-color: rgba($light-gray, .3s);
+        }
+        span{
+            display: inline-block;
+            @include transform(rotate(0deg));
+            @include transition(all .2s ease-out);
+        }
+        span svg{
+            margin-left: 5px;
+            margin-bottom: 3px;
+            @include transition(all .2s ease-out);
+        }
+    }
+
+    .group ul{
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        background-color: $darkest-gray;
+        @include transition(right .2s ease-out);
+        li{
+            opacity: 0;
+            padding: 10px 20px;
+            position: relative;
+            left: 50px;
+            a{
+                color: $med-gray;
+                @include hoverstate(.2s){
+                    color: white;
+                }
+            }
+        }
+        &.fade-in li{
+            opacity: 1;
+            left: 0;
+            @include transition(all .2s ease-in .1s);
+        }
+    }
+
+    .group.open{
+        ul{        
+            height: auto;
+            opacity: 1;
+            @include transition(right .3s ease-out);
+        }
+        p span{
+            svg{
+                margin-left: 0;
+                margin-right: 5px;
+                margin-bottom: 0;
+                @include transition(all .3s ease-in);
+            }
+            @include transform(rotate(180deg));
+            @include transition(all .3s ease-in);
+        }
+    }
+}

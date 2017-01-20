@@ -1,0 +1,128 @@
+nav{
+    position: fixed;
+    top: -125px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    @include transition(width .2s ease-out);
+    @include animate(navOnLoad, .5s forwards .5s){
+    	100%{top:0;}
+    }
+    &.contract{
+    	width: calc(100% - 350px);
+    	@include transition(width .3s ease-out);
+    }
+
+	.nav-top{
+		color: white;
+		@include nav-param(70px, $darkest-gray, .9);
+	}
+
+	.nav-top a{
+		color: white;
+		@include hoverstate(.2s){
+			color: $blue;
+		}
+	}
+
+	.nav-top .group{
+		@include flex-param();
+	}
+
+	.nav-top .toggle{
+		cursor: pointer;
+		span{
+			margin-left: 10px;
+			width: 10px;
+			height: 2px;
+			background-color: white;
+			position: relative;
+			display: block;
+			left: 0;
+			@include transition(all .2s ease-out);
+		}
+		span:not(:last-child){
+			margin-bottom: 3px;
+		}
+	}
+
+	.nav-top .toggle.open span{
+		width: 30px;
+		margin-left: 20px;
+		@include transition(all .2s ease-in);
+		&:nth-child(1){
+			top: 5px;
+		    @include transform(rotate(45deg));
+		}
+		&:nth-child(2){
+			left: 20px;
+			opacity: 0;
+		}
+		&:nth-child(3){
+			bottom: 5px;
+		    @include transform(rotate(-45deg));
+		}
+	}
+
+	.nav-top .logo svg{
+		height: 25px;
+		width: auto;
+	}
+
+	.nav-bottom{
+		border-bottom: 1px solid $light-gray;
+		@include nav-param(50px, white, .8);
+		ul{
+			display: inline-block;
+		}
+
+		ul li{
+		    width: 70px;
+		    text-align: right;
+		}
+
+		span.icon-search{
+			margin-left: 30px;
+			opacity: .5;
+			@include hoverstate(.2s){
+				opacity: 1;
+			}
+		}
+	}
+
+	&.contract .nav-bottom{
+		ul{
+			display: none;
+		}
+		.icon-search:before{
+			content: 'BROWSE BY CATEGORY';
+			font-size: 12px;
+			margin-right: 40px;
+		}
+	}
+
+	.nav-bottom ul li a{
+		color: $gray;
+		position: relative;
+		letter-spacing: .15px;
+		&:after{
+		    content: '';
+		    width: 0;
+		    bottom: 0;
+		    left: 0;
+		    border-bottom: 1px solid $gray;
+		    position: absolute;
+		    @include transition(width .3s ease-in);
+		}
+		@include hoverstate(.2s){
+			font-weight: 700;
+			letter-spacing: 0;
+			color: $darkest-gray;
+			&:after{
+				width: 100%;
+				@include transition(width .3s ease-out);
+			}
+		}
+	}
+
+}

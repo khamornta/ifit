@@ -1,0 +1,106 @@
+//flex aprameters
+@mixin flex-param($dir: row, $justify: center, $align: center){
+	display: flex;
+	flex-direction: $dir;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+//responsive font selector
+@mixin font-size($hd, $md, $sm, $xs){
+	@include desktop-hd{font-size: $hd;}
+	@include desktop{font-size: $md;}
+	@include tablet{font-size: $sm;}
+	@include phone{font-size: $xs;}
+}
+
+//full size absolute psudeo selector
+@mixin psuedoLarge($width: 100%, $height: 100%){
+	content: '';
+	width: $width;
+	height: $height;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+//transform
+
+@mixin transform($val, $position:center){
+  transform-origin: $position;
+  -webkit-transform: #{$val};
+  -moz-transform: #{$val};
+  transform: #{$val};
+}
+
+//main nav
+@mixin nav-param($height, $color, $opacity){
+	height: $height;
+	padding: 0 30px;
+	background-color: rgba($color, $opacity);
+	@include flex-param($justify: space-between);
+}
+
+//animation
+@mixin animate($animation-name, $prop){
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+	
+  -webkit-animation: #{$animation-name} #{$prop};
+  -moz-animation: #{$animation-name} #{$prop};
+  -ms-animation: #{$animation-name} #{$prop};
+  -o-animation: #{$animation-name} #{$prop};
+  animation: #{$animation-name} #{$prop};      
+}
+
+//transitions
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin svgtransition($transition...) {
+    path,
+    rect,
+    polygon{
+      -moz-transition:    $transition;
+      -o-transition:      $transition;
+      -webkit-transition: $transition;
+      transition:         $transition;
+    }
+}
+
+@mixin hoverstate($time){
+  cursor: pointer;
+  @include transition(all $time ease-out);
+  &:hover{
+    @content
+    @include transition(all $time ease-in);
+  }
+}
+
+@mixin hoverstateSvg($time){
+  cursor: pointer;
+	svg path{
+  		@include transition(all $time ease-out);
+	}
+	&:hover svg path{
+		@content
+		@include transition(all $time ease-in);
+	}
+}

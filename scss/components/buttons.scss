@@ -1,0 +1,11 @@
+.btn-blue{
+    color: white;
+    letter-spacing: 1.5px;
+    background-color: $blue;
+    padding: 23px 55px;
+    display: inline-block;
+    margin-bottom: 70px;
+    @include hoverstate(.2s){
+    	background-color: darken($blue, 15%);
+    }
+}

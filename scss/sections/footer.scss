@@ -1,0 +1,45 @@
+footer {
+	opacity: 0;
+	height: 50px;
+	padding: 0 30px;
+	background-color: $darkest-gray;
+	@include flex-param(row, space-between, center);
+
+	ul li,
+	ul li *{			
+		letter-spacing: 1px;
+		display: inline-block;
+		color: $gray;
+	}
+
+	.group {
+		@include flex-param();
+		ul li a {
+			@include hoverstate(.2s) {
+				color: white;
+			}
+		}
+		ul.links {
+			margin-right: 30px;
+		}
+		ul.links li:not(:last-child):after {
+			content: "/";
+			margin-left: 2.5px;
+		}
+		ul.social li:not(:last-child) {
+			margin-right: 15px;
+		}
+		ul.social li svg {
+			height: 12px;
+			width: auto;
+			path {
+				fill: $gray;
+			}
+		}
+		ul.social li{	
+			@include hoverstateSvg(.2s){
+				fill: white;
+			}
+		}
+	}
+}

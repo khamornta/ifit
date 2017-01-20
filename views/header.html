@@ -1,0 +1,29 @@
+<nav ng-class="{contract:searchOpen}">
+	<div class="nav-top">
+		<div class="logo" ng-include="'images/logo.svg'"></div>
+		<div class="group">		
+			<ul class="list-unstyled list-inline font-sm">
+			  <li><a href="">LOGIN</a></li>
+			  <li><a href="">SIGNUP</a></li>
+			  <li><a href="">MENU</a></li>
+			</ul>
+			<div class="toggle" ng-click="toggleMenu()" ng-class="{open:columnOpen}">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="nav-bottom">
+		<span class="font-lg">Weight Loss</span>
+		<div class="group">
+			<ul class="list-unstyled list-inline font-xs">
+				<li><a href="">OVERVIEW</a></li>
+				<li><a href="">FEATURES</a></li>
+				<li><a href="">PROGRAM</a></li>
+				<li><a href="">TRAINING</a></li>
+			</ul>
+			<span class="icon-search" ng-click="toggleSearch()" ng-include="'images/icon-search.svg'"></span>
+		</div>
+	</div>
+</nav>

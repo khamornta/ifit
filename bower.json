@@ -1,0 +1,18 @@
+{
+  "name": "ifit",
+  "homepage": "https://github.com/khamornta/ifit",
+  "authors": [
+    "Kham Ornta <kornta@graphiclanguage.net>"
+  ],
+  "description": "FED Test",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

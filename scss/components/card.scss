@@ -1,0 +1,78 @@
+card[class^='col-']{
+
+	$padding: 15px;
+	$triangle: 65px;
+
+	height: 330px;
+	padding-left: 0;
+	padding-right: $padding;
+	opacity: 0;
+	cursor: pointer;
+	@include transform(rotateX(90deg));
+
+	&:nth-child(2n){
+		padding-left: 5px;
+		padding-right: 10px;
+	}
+	&:nth-child(4n - 1){
+		padding-left: 10px;
+		padding-right: 5px;
+	}
+	&:nth-child(4n){
+		padding-right: 0;
+		padding-left: $padding;
+	}
+
+	.thumb{
+		width: 100%;
+		height: 240px;
+		position: relative;
+		margin-bottom: 10px;
+		overflow: hidden;
+		perspective: 2000px;
+		img{
+			border-top: 2px solid white;
+			transform-origin: center;
+			@include transition(all .2s ease-out);
+		}
+		&:after{
+			content: "";
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: $triangle $triangle 0 0;
+			border-color: white transparent transparent transparent;
+			position: absolute;
+			top: -2px;
+			left: -2px;
+		}
+		&:before{
+			$padding: 10px;
+
+			content: "";
+			width: calc(100% - #{$padding * 2});
+			height: calc(100% - #{$padding * 2});
+			position: absolute;
+			top: $padding;
+			left: $padding;
+			border: 1px solid white;
+			z-index: 5;
+			opacity: 0;
+			@include transform(rotateY(90deg));
+			@include transition(all .2s ease-out);
+		}
+		&:hover{
+
+			img{
+				@include transform(rotateY(5deg) translateZ(20px));
+				@include transition(all .2s ease-out);
+			}
+			&:before{
+				opacity: 1;
+				@include transform(rotateY(0deg));
+				@include transition(all .2s ease-in);
+			}
+		}
+	}
+
+}
